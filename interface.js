@@ -15,18 +15,53 @@ document.addEventListener("DOMContentLoaded", function () {
   const leituraAguaQuenteInput = document.getElementById("leitura-agua-quente");
 
   const inputs = [
-    valorCaldeiraInput,
-    totalAguaQuenteInput,
-    valorM3GasInput,
-    leituraGasInput,
-    leituraAguaFriaInput,
-    leituraAguaQuenteInput,
+    { element: valorCaldeiraInput, key: 'valorCaldeira' },
+    { element: totalAguaQuenteInput, key: 'totalAguaQuente' },
+    { element: valorM3GasInput, key: 'valorM3Gas' },
+    { element: leituraGasInput, key: 'leituraGas' },
+    { element: leituraAguaFriaInput, key: 'leituraAguaFria' },
+    { element: leituraAguaQuenteInput, key: 'leituraAguaQuente' }
   ];
 
-  inputs.forEach((input) => {
-    input.addEventListener("input", updateCalculations);
+  // Load saved values
+  function loadSavedValues() {
+    const currentMonth = new Date().toISOString().slice(0, 7); // YYYY-MM format
+    const savedData = JSON.parse(localStorage.getItem('calculadoraCondominio') || '{}');
+    const monthData = savedData[currentMonth] || {};
+    
+    inputs.forEach(({ element, key }) => {
+      if (monthData[key] !== undefined) {
+        element.value = monthData[key];
+      }
+    });
+  }
+
+  // Save values to localStorage
+  function saveValues() {
+    const currentMonth = new Date().toISOString().slice(0, 7); // YYYY-MM format
+    const savedData = JSON.parse(localStorage.getItem('calculadoraCondominio') || '{}');
+    
+    if (!savedData[currentMonth]) {
+      savedData[currentMonth] = {};
+    }
+
+    inputs.forEach(({ element, key }) => {
+      savedData[currentMonth][key] = element.value;
+    });
+
+    localStorage.setItem('calculadoraCondominio', JSON.stringify(savedData));
+  }
+
+  // Add input event listeners
+  inputs.forEach(({ element }) => {
+    element.addEventListener("input", () => {
+      updateCalculations();
+      saveValues();
+    });
   });
 
+  // Load saved values and update calculations
+  loadSavedValues();
   updateCalculations();
 
   function updateCalculations() {
