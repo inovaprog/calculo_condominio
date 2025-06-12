@@ -312,6 +312,91 @@ input {
     font-weight: bold;
 }
 
+/* Estilos para a seção de gás */
+.gas-section .result-box {
+    background-color: #fff8e1;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.gas-calculation-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.gas-value-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    background-color: #fffde7;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.gas-value-box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.gas-reading, .gas-rate {
+    flex: 1;
+    background-color: #fff;
+    padding: 15px 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    min-width: 180px;
+}
+
+.gas-label {
+    display: block;
+    color: #f57f17;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.gas-number {
+    display: block;
+    color: #e65100;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.gas-multiply {
+    width: 40px;
+    height: 40px;
+    background-color: #ffd54f;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.gas-section .total-value {
+    background-color: #fff8e1;
+    padding: 15px 20px;
+    border-radius: 8px;
+    border-top: 2px dashed #ffe082;
+    margin-top: 20px;
+}
+
+.gas-section .total-value span:last-child {
+    color: #e65100;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
 /* Media queries para responsividade */
 @media (max-width: 600px) {
     .heating-components {
@@ -322,5 +407,19 @@ input {
     .heating-sum {
         top: calc(50% - 5px);
         transform: translate(-50%, -50%) rotate(90deg);
+    }
+
+    .gas-value-box {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .gas-reading, .gas-rate {
+        width: 100%;
+        min-width: unset;
+    }
+
+    .gas-multiply {
+        transform: rotate(90deg);
     }
 }
