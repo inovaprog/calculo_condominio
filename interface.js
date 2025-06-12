@@ -1,4 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // Initialize configuration toggle
+  const configSection = document.querySelector(".config-section");
+  const configToggle = document.querySelector(".config-toggle");
+
+  configToggle.addEventListener("click", () => {
+    configSection.classList.toggle("collapsed");
+  });
+
   const valorCaldeiraInput = document.getElementById("valor-caldeira");
   const totalAguaQuenteInput = document.getElementById("total-agua-quente");
   const valorM3GasInput = document.getElementById("valor-m3-gas");
@@ -153,4 +161,62 @@ document.addEventListener("DOMContentLoaded", function () {
 
     return totalAquecimentoAgua;
   }
+
+  // Month Navigation
+  const months = [
+    "Janeiro",
+    "Fevereiro",
+    "Março",
+    "Abril",
+    "Maio",
+    "Junho",
+    "Julho",
+    "Agosto",
+    "Setembro",
+    "Outubro",
+    "Novembro",
+    "Dezembro",
+  ];
+  const currentDate = new Date();
+  let currentMonth = currentDate.getMonth();
+  let currentYear = currentDate.getFullYear();
+
+  const prevMonthBtn = document.getElementById("prevMonth");
+  const nextMonthBtn = document.getElementById("nextMonth");
+  const currentMonthSpan = document.querySelector(".current-month");
+
+  function updateMonthDisplay() {
+    const prevDate = new Date(currentYear, currentMonth - 1);
+    const nextDate = new Date(currentYear, currentMonth + 1);
+
+    prevMonthBtn.textContent = `◀ ${
+      months[prevDate.getMonth()]
+    } ${prevDate.getFullYear()}`;
+    currentMonthSpan.textContent = `${months[currentMonth]} ${currentYear}`;
+    nextMonthBtn.textContent = `${
+      months[nextDate.getMonth()]
+    } ${nextDate.getFullYear()} ▶`;
+  }
+
+  prevMonthBtn.addEventListener("click", () => {
+    if (currentMonth === 0) {
+      currentMonth = 11;
+      currentYear--;
+    } else {
+      currentMonth--;
+    }
+    updateMonthDisplay();
+  });
+
+  nextMonthBtn.addEventListener("click", () => {
+    if (currentMonth === 11) {
+      currentMonth = 0;
+      currentYear++;
+    } else {
+      currentMonth++;
+    }
+    updateMonthDisplay();
+  });
+
+  updateMonthDisplay();
 });

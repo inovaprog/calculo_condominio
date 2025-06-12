@@ -8,9 +8,31 @@
   </head>
   <body>
     <div class="container">
-      <h1>Calculadora de Condomínio</h1>
-
       <div class="calculator">
+
+        <div class="section config-section collapsed">
+          <button class="config-toggle">
+            <span class="config-icon">⚙️</span>
+            <span class="config-text">Configurações</span>
+          </button>
+          <div class="config-content">
+            <div class="global-grid">
+              <div class="input-group">
+                <label for="valor-caldeira">Valor da Caldeira (R$):</label>
+                <input type="number" id="valor-caldeira" step="0.01" value="50302.38" />
+              </div>
+              <div class="input-group">
+                <label for="total-agua-quente">Total de Água Quente (m³):</label>
+                <input type="number" id="total-agua-quente" step="0.001" value="667.012" />
+              </div>
+              <div class="input-group">
+                <label for="valor-m3-gas">Valor do m³ de Gás (R$):</label>
+                <input type="number" id="valor-m3-gas" step="0.01" value="6.5048" />
+              </div>
+            </div>
+          </div>
+        </div>
+       
         <div class="section readings-section">
           <h2>Leituras do Mês</h2>
           <div class="readings-grid">
@@ -41,23 +63,7 @@
           </div>
         </div>
 
-        <div class="section global-section">
-          <h2>Valores Globais</h2>
-          <div class="global-grid">
-            <div class="input-group">
-              <label for="valor-caldeira">Valor da Caldeira (R$):</label>
-              <input type="number" id="valor-caldeira" step="0.01" value="50302.38" />
-            </div>
-            <div class="input-group">
-              <label for="total-agua-quente">Total de Água Quente (m³):</label>
-              <input type="number" id="total-agua-quente" step="0.001" value="667.012" />
-            </div>
-            <div class="input-group">
-              <label for="valor-m3-gas">Valor do m³ de Gás (R$):</label>
-              <input type="number" id="valor-m3-gas" step="0.01" value="6.5048" />
-            </div>
-          </div>
-        </div>
+        
         <div class="section gas-section">
           <h2>Gás</h2>
           <div class="result-box">
