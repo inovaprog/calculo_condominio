@@ -28,7 +28,7 @@ function calcularCustoAguaEsgoto(consumoTotal) {
   for (const faixa of TARIFAS_AGUA_ESGOTO.FAIXAS) {
     if (consumoRestante > 0 && consumoTotal >= faixa.min) {
       const consumoNaFaixa = Math.min(
-        faixa.max - faixa.min + 1,
+        faixa.max - faixa.min + (faixa.min === 0 ? 0 : 1),
         Math.max(0, consumoRestante)
       );
       custoAgua += consumoNaFaixa * faixa.valor;

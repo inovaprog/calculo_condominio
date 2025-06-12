@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (consumoRestante > 0 && totalConsumoAgua >= faixa.min) {
           tierElement.classList.add("active");
           const consumoNaFaixa = Math.min(
-            faixa.max - faixa.min + 1,
+            faixa.max - faixa.min + (faixa.min === 0 ? 0 : 1),
             Math.max(0, consumoRestante)
           );
 
