@@ -1,160 +1,193 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculadora de Condomínio</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <div class="container">
-        <h1>Calculadora de Condomínio</h1>
-        
-        <div class="calculator">
-            <div class="section global-section">
-                <h2>Valores Globais</h2>
-                <div class="input-group">
-                    <label for="valor-caldeira">Valor da Caldeira (R$):</label>
-                    <input type="number" id="valor-caldeira" step="0.01" value="50302.38">
-                </div>
-                <div class="input-group">
-                    <label for="total-agua-quente">Total de Água Quente (m³):</label>
-                    <input type="number" id="total-agua-quente" step="0.001" value="667.012">
-                </div>
-                <div class="input-group">
-                    <label for="valor-m3-gas">Valor do m³ de Gás (R$):</label>
-                    <input type="number" id="valor-m3-gas" step="0.01" value="6.5048">
-                </div>
-            </div>
-            <div class="section gas-section">
-                <h2>Gás</h2>
-                <div class="input-group">
-                    <label for="leitura-gas">Leitura do Gás (m³):</label>
-                    <input type="number" id="leitura-gas" step="0.0001" value="5">
-                </div>
-                <div class="result-box">
-                    <div class="calculation">
-                        <span class="formula">Valor = Leitura × Tarifa</span>
-                        <span class="values" id="gas-calculation">5 × 6.5 = R$ 32.50</span>
-                    </div>
-                    <div class="total-value">
-                        <span>Total Gás:</span>
-                        <span id="gas-total">R$ 32.50</span>
-                    </div>
-                </div>
-            </div>
+      <h1>Calculadora de Condomínio</h1>
 
-            <div class="section water-section">
-                <h2>Água e Esgoto</h2>
-                <div class="input-group">
-                    <label for="leitura-agua-fria">Leitura de Água Fria (m³):</label>
-                    <input type="number" id="leitura-agua-fria" step="0.0001" value="11.7480">
-                </div>
-                <div class="input-group">
-                    <label for="leitura-agua-quente">Leitura de Água Quente (m³):</label>
-                    <input type="number" id="leitura-agua-quente" step="0.0001" value="10.1940">
-                </div>
-                <div class="result-box">
-                    <div class="calculation">
-                        <span class="formula">Consumo Total = Água Fria + Água Quente</span>
-                        <span class="values" id="water-consumption">11.7480 + 10.1940 = 21.9420 m³</span>
-                    </div>
-                    <div class="calculation">
-                        <span class="formula">Tarifa Base + Faixas de Consumo</span>
-                        <div class="water-tiers">
-                            <div class="tier base-tier">
-                                <div class="tier-header">Tarifa Base</div>
-                                <div class="tier-value">R$ 93.28</div>
-                            </div>
-                            <div class="tier-container">
-                                <div class="tier" id="tier-0-5">
-                                    <div class="tier-header">0-5 m³</div>
-                                    <div class="tier-rate">R$ 0.00/m³</div>
-                                    <div class="tier-consumption">5 m³</div>
-                                    <div class="tier-value">R$ 0.00</div>
-                                </div>
-                                <div class="tier" id="tier-6-10">
-                                    <div class="tier-header">6-10 m³</div>
-                                    <div class="tier-rate">R$ 2.88/m³</div>
-                                    <div class="tier-consumption">5 m³</div>
-                                    <div class="tier-value">R$ 14.40</div>
-                                </div>
-                                <div class="tier" id="tier-11-15">
-                                    <div class="tier-header">11-15 m³</div>
-                                    <div class="tier-rate">R$ 16.08/m³</div>
-                                    <div class="tier-consumption">5 m³</div>
-                                    <div class="tier-value">R$ 80.40</div>
-                                </div>
-                                <div class="tier" id="tier-16-20">
-                                    <div class="tier-header">16-20 m³</div>
-                                    <div class="tier-rate">R$ 16.16/m³</div>
-                                    <div class="tier-consumption">5 m³</div>
-                                    <div class="tier-value">R$ 80.80</div>
-                                </div>
-                                <div class="tier" id="tier-21-30">
-                                    <div class="tier-header">21-30 m³</div>
-                                    <div class="tier-rate">R$ 16.29/m³</div>
-                                    <div class="tier-consumption">2 m³</div>
-                                    <div class="tier-value">R$ 32.58</div>
-                                </div>
-                                <div class="tier" id="tier-31-plus">
-                                    <div class="tier-header">>30 m³</div>
-                                    <div class="tier-rate">R$ 27.57/m³</div>
-                                    <div class="tier-consumption">0 m³</div>
-                                    <div class="tier-value">R$ 0.00</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="total-value">
-                        <span>Total Água e Esgoto:</span>
-                        <span id="water-total">R$ 301.46</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section heating-section">
-                <h2>Aquecimento de Água</h2>
-                <div class="result-box">
-                    <div class="calculation">
-                        <span class="formula">Taxa Fixa = Valor Caldeira × 0.2 ÷ 185</span>
-                        <span class="values" id="fixed-rate-calculation">50302.38 × 0.2 ÷ 185 = R$ 54.38</span>
-                    </div>
-                    <div class="calculation">
-                        <span class="formula">Valor por m³ = Valor Caldeira × 0.8 ÷ Total Água Quente</span>
-                        <span class="values" id="rate-per-m3-calculation">50302.38 × 0.8 ÷ 667.012 = R$ 60.33</span>
-                    </div>
-                    <div class="calculation">
-                        <span class="formula">Valor Variável = Valor por m³ × Leitura Água Quente</span>
-                        <span class="values" id="variable-cost-calculation">60.33 × 10.1940 = R$ 615.00</span>
-                    </div>
-                    <div class="heating-summary">
-                        <div class="heating-components">
-                            <div class="heating-component">
-                                <span>Taxa Fixa:</span>
-                                <span id="fixed-rate-total">R$ 54.38</span>
-                            </div>
-                            <div class="heating-component">
-                                <span>Valor Variável:</span>
-                                <span id="variable-cost-total">R$ 615.00</span>
-                            </div>
-                            <div class="heating-sum">
-                                <span>+</span>
-                            </div>
-                        </div>
-                        <div class="total-value">
-                            <span>Total Aquecimento:</span>
-                            <span id="heating-total">R$ 669.38</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
+      <div class="calculator">
+        <div class="section global-section">
+          <h2>Valores Globais</h2>
+          <div class="input-group">
+            <label for="valor-caldeira">Valor da Caldeira (R$):</label>
+            <input
+              type="number"
+              id="valor-caldeira"
+              step="0.01"
+              value="50302.38"
+            />
+          </div>
+          <div class="input-group">
+            <label for="total-agua-quente">Total de Água Quente (m³):</label>
+            <input
+              type="number"
+              id="total-agua-quente"
+              step="0.001"
+              value="667.012"
+            />
+          </div>
+          <div class="input-group">
+            <label for="valor-m3-gas">Valor do m³ de Gás (R$):</label>
+            <input type="number" id="valor-m3-gas" step="0.01" value="6.5048" />
+          </div>
         </div>
+        <div class="section gas-section">
+          <h2>Gás</h2>
+          <div class="input-group">
+            <label for="leitura-gas">Leitura do Gás (m³):</label>
+            <input type="number" id="leitura-gas" step="0.0001" value="5" />
+          </div>
+          <div class="result-box">
+            <div class="calculation">
+              <span class="formula">Valor = Leitura × Tarifa</span>
+              <span class="values" id="gas-calculation"
+                >5 × 6.5 = R$ 32.50</span
+              >
+            </div>
+            <div class="total-value">
+              <span>Total Gás:</span>
+              <span id="gas-total">R$ 32.50</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="section water-section">
+          <h2>Água e Esgoto</h2>
+          <div class="input-group">
+            <label for="leitura-agua-fria">Leitura de Água Fria (m³):</label>
+            <input
+              type="number"
+              id="leitura-agua-fria"
+              step="0.0001"
+              value="11.7480"
+            />
+          </div>
+          <div class="input-group">
+            <label for="leitura-agua-quente"
+              >Leitura de Água Quente (m³):</label
+            >
+            <input
+              type="number"
+              id="leitura-agua-quente"
+              step="0.0001"
+              value="10.1940"
+            />
+          </div>
+          <div class="result-box">
+            <div class="calculation">
+              <span class="formula"
+                >Consumo Total = Água Fria + Água Quente</span
+              >
+              <span class="values" id="water-consumption"
+                >11.7480 + 10.1940 = 21.9420 m³</span
+              >
+            </div>
+            <div class="calculation">
+              <span class="formula">Tarifa Base + Faixas de Consumo</span>
+              <div class="water-tiers">
+                <div class="tier base-tier">
+                  <div class="tier-header">Tarifa Base</div>
+                  <div class="tier-value">R$ 93.28</div>
+                </div>
+                <div class="tier-container">
+                  <div class="tier" id="tier-6-10">
+                    <div class="tier-header">6-10 m³</div>
+                    <div class="tier-rate">R$ 2.88/m³</div>
+                    <div class="tier-consumption">5 m³</div>
+                    <div class="tier-value">R$ 14.40</div>
+                  </div>
+                  <div class="tier" id="tier-11-15">
+                    <div class="tier-header">11-15 m³</div>
+                    <div class="tier-rate">R$ 16.08/m³</div>
+                    <div class="tier-consumption">5 m³</div>
+                    <div class="tier-value">R$ 80.40</div>
+                  </div>
+                  <div class="tier" id="tier-16-20">
+                    <div class="tier-header">16-20 m³</div>
+                    <div class="tier-rate">R$ 16.16/m³</div>
+                    <div class="tier-consumption">5 m³</div>
+                    <div class="tier-value">R$ 80.80</div>
+                  </div>
+                  <div class="tier" id="tier-21-30">
+                    <div class="tier-header">21-30 m³</div>
+                    <div class="tier-rate">R$ 16.29/m³</div>
+                    <div class="tier-consumption">2 m³</div>
+                    <div class="tier-value">R$ 32.58</div>
+                  </div>
+                  <div class="tier" id="tier-31-plus">
+                    <div class="tier-header">>30 m³</div>
+                    <div class="tier-rate">R$ 27.57/m³</div>
+                    <div class="tier-consumption">0 m³</div>
+                    <div class="tier-value">R$ 0.00</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="total-value">
+              <span>Total Água e Esgoto:</span>
+              <span id="water-total">R$ 301.46</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="section heating-section">
+          <h2>Aquecimento de Água</h2>
+          <div class="result-box">
+            <div class="calculation">
+              <span class="formula"
+                >Taxa Fixa = Valor Caldeira × 20% ÷ 185 (Dividido igualmente
+                entre todos os apartamentos )</span
+              >
+              <span class="values" id="fixed-rate-calculation"
+                >50302.38 × 0.2 ÷ 185 = R$ 54.38</span
+              >
+            </div>
+            <div class="calculation">
+              <span class="formula"
+                >Valor por m³ = Valor Caldeira × 80% ÷ Total Água Quente</span
+              >
+              <span class="values" id="rate-per-m3-calculation"
+                >50302.38 × 0.8 ÷ 667.012 = R$ 60.33</span
+              >
+            </div>
+            <div class="calculation">
+              <span class="formula"
+                >Valor Variável = Valor por m³ × Leitura Água Quente</span
+              >
+              <span class="values" id="variable-cost-calculation"
+                >60.33 × 10.1940 = R$ 615.00</span
+              >
+            </div>
+            <div class="heating-summary">
+              <div class="heating-components">
+                <div class="heating-component">
+                  <span>Taxa Fixa:</span>
+                  <span id="fixed-rate-total">R$ 54.38</span>
+                </div>
+                <div class="heating-component">
+                  <span>Valor Variável:</span>
+                  <span id="variable-cost-total">R$ 615.00</span>
+                </div>
+                <div class="heating-sum">
+                  <span>+</span>
+                </div>
+              </div>
+              <div class="total-value">
+                <span>Total Aquecimento:</span>
+                <span id="heating-total">R$ 669.38</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="calculo_condominio.js"></script>
     <script src="interface.js"></script>
-</body>
+  </body>
 </html>
