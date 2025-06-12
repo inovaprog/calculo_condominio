@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2c3e50;
+}
+
+.calculator {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.section {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.section:last-child {
+    border-bottom: none;
+}
+
+h2 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+    font-size: 1.5rem;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+label {
+    flex: 1;
+    font-weight: 500;
+}
+
+input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.result-box {
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    padding: 15px;
+    margin-top: 15px;
+}
+
+.calculation {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.formula {
+    font-weight: 500;
+    color: #7f8c8d;
+    margin-bottom: 5px;
+}
+
+.values {
+    padding-left: 15px;
+    color: #34495e;
+}
+
+.total-value {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    padding-top: 10px;
+    border-top: 1px dashed #ddd;
+    font-size: 1.1rem;
+}
+
+.grand-total {
+    font-size: 1.4rem;
+    color: #2c3e50;
+}
+
+.gas-section {
+    background-color: #fef9e7;
+}
+
+.water-section {
+    background-color: #ebf5fb;
+}
+
+.heating-section {
+    background-color: #fdebd0;
+}
+
+.total-section {
+    background-color: #eafaf1;
+}
+
+#water-calculation div {
+    margin-bottom: 3px;
+}
