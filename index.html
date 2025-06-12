@@ -61,13 +61,49 @@
                     </div>
                     <div class="calculation">
                         <span class="formula">Tarifa Base + Faixas de Consumo</span>
-                        <div class="values" id="water-calculation">
-                            <div>Tarifa Base: R$ 93.28</div>
-                            <div>Faixa 0-5: R$ 0.00</div>
-                            <div>Faixa 6-10: 5 × R$ 2.88 = R$ 14.40</div>
-                            <div>Faixa 11-15: 5 × R$ 16.08 = R$ 80.40</div>
-                            <div>Faixa 16-20: 5 × R$ 16.16 = R$ 80.80</div>
-                            <div>Faixa 21-30: 2 × R$ 16.29 = R$ 32.58</div>
+                        <div class="water-tiers">
+                            <div class="tier base-tier">
+                                <div class="tier-header">Tarifa Base</div>
+                                <div class="tier-value">R$ 93.28</div>
+                            </div>
+                            <div class="tier-container">
+                                <div class="tier" id="tier-0-5">
+                                    <div class="tier-header">0-5 m³</div>
+                                    <div class="tier-rate">R$ 0.00/m³</div>
+                                    <div class="tier-consumption">5 m³</div>
+                                    <div class="tier-value">R$ 0.00</div>
+                                </div>
+                                <div class="tier" id="tier-6-10">
+                                    <div class="tier-header">6-10 m³</div>
+                                    <div class="tier-rate">R$ 2.88/m³</div>
+                                    <div class="tier-consumption">5 m³</div>
+                                    <div class="tier-value">R$ 14.40</div>
+                                </div>
+                                <div class="tier" id="tier-11-15">
+                                    <div class="tier-header">11-15 m³</div>
+                                    <div class="tier-rate">R$ 16.08/m³</div>
+                                    <div class="tier-consumption">5 m³</div>
+                                    <div class="tier-value">R$ 80.40</div>
+                                </div>
+                                <div class="tier" id="tier-16-20">
+                                    <div class="tier-header">16-20 m³</div>
+                                    <div class="tier-rate">R$ 16.16/m³</div>
+                                    <div class="tier-consumption">5 m³</div>
+                                    <div class="tier-value">R$ 80.80</div>
+                                </div>
+                                <div class="tier" id="tier-21-30">
+                                    <div class="tier-header">21-30 m³</div>
+                                    <div class="tier-rate">R$ 16.29/m³</div>
+                                    <div class="tier-consumption">2 m³</div>
+                                    <div class="tier-value">R$ 32.58</div>
+                                </div>
+                                <div class="tier" id="tier-31-plus">
+                                    <div class="tier-header">>30 m³</div>
+                                    <div class="tier-rate">R$ 27.57/m³</div>
+                                    <div class="tier-consumption">0 m³</div>
+                                    <div class="tier-value">R$ 0.00</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="total-value">
@@ -92,9 +128,24 @@
                         <span class="formula">Valor Variável = Valor por m³ × Leitura Água Quente</span>
                         <span class="values" id="variable-cost-calculation">60.33 × 10.1940 = R$ 615.00</span>
                     </div>
-                    <div class="total-value">
-                        <span>Total Aquecimento:</span>
-                        <span id="heating-total">R$ 669.38</span>
+                    <div class="heating-summary">
+                        <div class="heating-components">
+                            <div class="heating-component">
+                                <span>Taxa Fixa:</span>
+                                <span id="fixed-rate-total">R$ 54.38</span>
+                            </div>
+                            <div class="heating-component">
+                                <span>Valor Variável:</span>
+                                <span id="variable-cost-total">R$ 615.00</span>
+                            </div>
+                            <div class="heating-sum">
+                                <span>+</span>
+                            </div>
+                        </div>
+                        <div class="total-value">
+                            <span>Total Aquecimento:</span>
+                            <span id="heating-total">R$ 669.38</span>
+                        </div>
                     </div>
                 </div>
             </div>

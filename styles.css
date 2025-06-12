@@ -121,3 +121,94 @@ input {
 #water-calculation div {
     margin-bottom: 3px;
 }
+
+.water-tiers {
+    margin-top: 15px;
+    border: 1px solid #bde0f3;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.base-tier {
+    background-color: #e1f5fe;
+    padding: 15px;
+    border-bottom: 1px solid #bde0f3;
+}
+
+.tier-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1px;
+    background-color: #bde0f3;
+    
+    /* Tablets and smaller screens */
+    @media (max-width: 900px) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2px;
+    }
+
+    /* Very small screens */
+    @media (max-width: 480px) {
+        grid-template-columns: 1fr;
+        gap: 3px;
+    }
+}
+
+.tier {
+    background-color: white;
+    padding: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+    
+    @media (max-width: 900px) {
+        padding: 15px;
+        margin: 0 auto;
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+.tier:hover {
+    background-color: #f8fdff;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.tier-header {
+    font-weight: bold;
+    color: #0277bd;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.tier-rate {
+    color: #01579b;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.tier-consumption {
+    background-color: #e3f2fd;
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: #0288d1;
+}
+
+.tier-value {
+    font-weight: bold;
+    color: #01579b;
+    font-size: 1.1rem;
+}
+
+/* Highlight active tiers based on consumption */
+.tier.active {
+    background-color: #e1f5fe;
+}
+
+.tier.active .tier-consumption {
+    background-color: #b3e5fc;
+    font-weight: bold;
+}
