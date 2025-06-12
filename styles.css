@@ -397,29 +397,124 @@ input {
     font-weight: bold;
 }
 
-/* Media queries para responsividade */
-@media (max-width: 600px) {
+/* Estilos para a seção de leituras */
+.readings-section {
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e7eb 100%);
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.readings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.reading-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+}
+
+.reading-card:hover {
+    transform: translateY(-2px);
+}
+
+.reading-card.gas {
+    background: linear-gradient(135deg, #fff9c4 0%, #fff 100%);
+    border: 1px solid #ffd54f;
+}
+
+.reading-card.water-cold {
+    background: linear-gradient(135deg, #e3f2fd 0%, #fff 100%);
+    border: 1px solid #90caf9;
+}
+
+.reading-card.water-hot {
+    background: linear-gradient(135deg, #ffebee 0%, #fff 100%);
+    border: 1px solid #ef9a9a;
+}
+
+.reading-icon {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.input-with-unit {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.input-with-unit input {
+    flex: 1;
+}
+
+.unit {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.global-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .calculator {
+        border-radius: 8px;
+    }
+
+    .section {
+        padding: 15px;
+    }
+
+    .readings-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .global-grid {
+        grid-template-columns: 1fr;
+    }
+
     .heating-components {
         grid-template-columns: 1fr;
-        gap: 40px;
     }
 
     .heating-sum {
-        top: calc(50% - 5px);
-        transform: translate(-50%, -50%) rotate(90deg);
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
     }
 
-    .gas-value-box {
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    .input-group {
         flex-direction: column;
-        gap: 15px;
+        align-items: flex-start;
     }
 
-    .gas-reading, .gas-rate {
+    .input-group label {
+        margin-bottom: 5px;
+    }
+
+    .input-group input {
         width: 100%;
-        min-width: unset;
-    }
-
-    .gas-multiply {
-        transform: rotate(90deg);
     }
 }
