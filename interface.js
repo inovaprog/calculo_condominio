@@ -140,9 +140,10 @@ document.addEventListener("DOMContentLoaded", function () {
       4
     )} = R$ ${valorTotalAquecimentoAgua.toFixed(2)}`;
 
-    document.getElementById(
-      "heating-total"
-    ).textContent = `R$ ${totalAquecimentoAgua.toFixed(2)}`;
+    // Atualiza os valores nos componentes
+    document.getElementById("fixed-rate-total").textContent = `R$ ${totalTaxaFixa.toFixed(2)}`;
+    document.getElementById("variable-cost-total").textContent = `R$ ${valorTotalAquecimentoAgua.toFixed(2)}`;
+    document.getElementById("heating-total").textContent = `R$ ${totalAquecimentoAgua.toFixed(2)}`;
 
     return totalAquecimentoAgua;
   }
