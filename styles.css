@@ -203,6 +203,13 @@ input {
     font-size: 1.1rem;
 }
 
+#tier-done {
+    background-color: #b3e5fc;
+    font-weight: bold;
+    color: #01579b;
+    font-size: 1.1rem;
+}
+
 /* Highlight active tiers based on consumption */
 .tier.active {
     background-color: #e1f5fe;
