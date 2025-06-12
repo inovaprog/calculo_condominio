@@ -64,13 +64,20 @@ document.addEventListener("DOMContentLoaded", function () {
   loadSavedValues();
   updateCalculations();
 
+  function parseDecimalInput(value) {
+    if (typeof value === 'string') {
+      return parseFloat(value.replace(',', '.')) || 0;
+    }
+    return parseFloat(value) || 0;
+  }
+
   function updateCalculations() {
-    const valorCaldeira = parseFloat(valorCaldeiraInput.value) || 0;
-    const totalAguaQuente = parseFloat(totalAguaQuenteInput.value) || 0;
-    const valorM3Gas = parseFloat(valorM3GasInput.value) || 0;
-    const leituraGas = parseFloat(leituraGasInput.value) || 0;
-    const leituraAguaFria = parseFloat(leituraAguaFriaInput.value) || 0;
-    const leituraAguaQuente = parseFloat(leituraAguaQuenteInput.value) || 0;
+    const valorCaldeira = parseDecimalInput(valorCaldeiraInput.value);
+    const totalAguaQuente = parseDecimalInput(totalAguaQuenteInput.value);
+    const valorM3Gas = parseDecimalInput(valorM3GasInput.value);
+    const leituraGas = parseDecimalInput(leituraGasInput.value);
+    const leituraAguaFria = parseDecimalInput(leituraAguaFriaInput.value);
+    const leituraAguaQuente = parseDecimalInput(leituraAguaQuenteInput.value);
 
     updateGasCalculation(leituraGas, valorM3Gas);
     updateWaterCalculation(leituraAguaFria, leituraAguaQuente);
