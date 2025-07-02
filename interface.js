@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const leituraAguaQuente = parseDecimalInput(leituraAguaQuenteInput.value);
 
     updateGasCalculation(leituraGas, valorM3Gas);
-    updateWaterCalculation(leituraAguaFria, leituraAguaQuente);
+    updateWaterCalculation(leituraAguaFria - leituraAguaQuente, leituraAguaQuente);
     updateHeatingCalculation(leituraAguaQuente, valorCaldeira, totalAguaQuente);
   }
 
